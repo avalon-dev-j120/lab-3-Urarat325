@@ -7,8 +7,6 @@ import javax.swing.*;
 public class RightPanel extends JPanel{
     public RightPanel(){
         
-        setBackground(Color.ORANGE);
-        
         setLayout(new BorderLayout());
         
         JSlider sliderRed = new JSlider(0,255,125);
@@ -34,7 +32,5 @@ public class RightPanel extends JPanel{
         sliderBlue.setPaintLabels(true);
         sliderBlue.setName("Blue");
         sliderBlue.addChangeListener(Win.win);
-        
-        setToolTipText();
     }
 }

@@ -14,14 +14,14 @@ public class Win extends JFrame implements ChangeListener {
     public static int colorRed = 125;
     private static int colorGreen = 125;
     private static int colorBlue = 125;
+    private static String hexCode = "7d7d7d";
 //    private Choice(){
 //        
 //        this.setTitle("Choice");
 //        
 //        
 //    }
-    
-    
+
     private Win() {
         win = this;
         this.setTitle("Color picker");
@@ -48,6 +48,7 @@ public class Win extends JFrame implements ChangeListener {
         setLayout(new GridLayout(1, 2));
         colorBox = new ColorBox();
         rightPanel = new RightPanel();
+        colorBox.setToolTipText(hexCode);
         add(colorBox);
         add(rightPanel);
 
@@ -75,7 +76,9 @@ public class Win extends JFrame implements ChangeListener {
                 colorBlue = slider.getValue();
                 break;
         }
-        Color color = new Color(colorRed,colorGreen,colorBlue);
+        Color color = new Color(colorRed, colorGreen, colorBlue);
+        hexCode = "#" + Integer.toHexString(colorRed) + Integer.toHexString(colorGreen) + Integer.toHexString(colorBlue);
         colorBox.setBackground(color);
+        colorBox.setToolTipText(hexCode);
     }
 }
