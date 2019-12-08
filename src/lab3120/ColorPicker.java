@@ -5,9 +5,9 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class Win extends JFrame implements ChangeListener {
+public class ColorPicker extends JFrame implements ChangeListener {
 
-    public static Win win = null;
+    public static ColorPicker win = null;
     private static ColorBox colorBox = null;
     private static RightPanel rightPanel = null;
     public static JLabel labe1 = null;
@@ -15,35 +15,14 @@ public class Win extends JFrame implements ChangeListener {
     private static int colorGreen = 125;
     private static int colorBlue = 125;
     private static String hexCode = "7d7d7d";
-//    private Choice(){
-//        
-//        this.setTitle("Choice");
-//        
-//        
-//    }
 
-    private Win() {
+    private ColorPicker() {
+
         win = this;
         this.setTitle("Color picker");
         setSize(600, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getRootPane().setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-//        labe1 = new JLabel("No clicks");
-//
-//        JButton b1 = new JButton("Push me");
-//        JButton b2 = new JButton("Push me2");
-//
-//        add(b1, BorderLayout.NORTH);
-//        add(b2, BorderLayout.SOUTH);
-//        
-//        Action cr = new Action();
-//        b1.addActionListener(cr);
-//        b2.addActionListener(cr);
-//        b1.setActionCommand("north");
-//        b2.setActionCommand("south");
-//        
-//        labe1 = new JLabel("No clicks",JLabel.CENTER);
-//        add(labe1, BorderLayout.CENTER);
 
         setLayout(new GridLayout(1, 2));
         colorBox = new ColorBox();
@@ -56,8 +35,8 @@ public class Win extends JFrame implements ChangeListener {
         // setResizable(false);
     }
 
-    public static Win getInstance() {
-        return new Win();
+    public static ColorPicker getInstance() {
+        return new ColorPicker();
     }
 
     @Override
