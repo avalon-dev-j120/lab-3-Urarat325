@@ -11,6 +11,7 @@ public class ChoiseWin implements ActionListener {
         //ColorPicker win = ColorPicker.getInstance();
     }
 
+    @Override
     public void actionPerformed(ActionEvent ae) {
 
         String command = ae.getActionCommand();
@@ -20,7 +21,7 @@ public class ChoiseWin implements ActionListener {
                 break;
 
             case "Colorpicker":
-                ColorPicker.getInstance();
+                ColorPicker cp = ColorPicker.getInstance();
                 break;
         }
     }
