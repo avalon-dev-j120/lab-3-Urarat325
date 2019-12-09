@@ -20,7 +20,7 @@ public class ColorPickerWin extends JFrame implements ChangeListener {
         win = this;
         this.setTitle("Color picker");
         setSize(600, 200);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         getRootPane().setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         setLayout(new GridLayout(1, 2));
