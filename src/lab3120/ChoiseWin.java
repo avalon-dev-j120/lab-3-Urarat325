@@ -8,7 +8,7 @@ public class ChoiseWin implements ActionListener {
     public static void main(String[] args) {
 
         SelectionWin sWin = SelectionWin.getInstance();
-        //ColorPicker win = ColorPicker.getInstance();
+        //ColorPicker win = ColorPickerWin.getInstance();
     }
 
     public void actionPerformed(ActionEvent ae) {
@@ -20,7 +20,7 @@ public class ChoiseWin implements ActionListener {
                 break;
 
             case "Colorpicker":
-                ColorPicker.getInstance();
+                ColorPickerWin.getInstance();
                 break;
         }
     }

@@ -16,7 +16,7 @@ public class RightPanel extends JPanel {
         sliderRed.setPaintTicks(true);
         sliderRed.setPaintLabels(true);
         sliderRed.setName("Red");
-        sliderRed.addChangeListener(ColorPicker.win);
+        sliderRed.addChangeListener(ColorPickerWin.win);
 
         JSlider sliderGreen = new JSlider(0, 255, 125);
         add(sliderGreen, BorderLayout.CENTER);
@@ -24,7 +24,7 @@ public class RightPanel extends JPanel {
         sliderGreen.setPaintTicks(true);
         sliderGreen.setPaintLabels(true);
         sliderGreen.setName("Green");
-        sliderGreen.addChangeListener(ColorPicker.win);
+        sliderGreen.addChangeListener(ColorPickerWin.win);
 
         JSlider sliderBlue = new JSlider(0, 255, 125);
         add(sliderBlue, BorderLayout.SOUTH);
@@ -32,6 +32,6 @@ public class RightPanel extends JPanel {
         sliderBlue.setPaintTicks(true);
         sliderBlue.setPaintLabels(true);
         sliderBlue.setName("Blue");
-        sliderBlue.addChangeListener(ColorPicker.win);
+        sliderBlue.addChangeListener(ColorPickerWin.win);
     }
 }
