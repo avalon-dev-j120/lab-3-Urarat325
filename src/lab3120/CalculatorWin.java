@@ -138,16 +138,25 @@ public class CalculatorWin extends JFrame {
                             break;
 
                         case "0":
-                            if (buffer[0] == "" || buffer[0] == "-" || buffer[0] == "0" || buffer[0] == "-0") {
-                                buffer[0] += button.getText() ;
+                            if (buffer[0] == "" || buffer[0] == "-") {
+                                buffer[0] += button.getText();
                                 label.setText(buffer[0]);
                             } else {
-                                
+                                if (buffer[0] == "0" || buffer[0] == "-0") {
+                                    buffer[0] += ".";
+                                    label.setText(buffer[0]);
+                                } else {
+                                    if (buffer[0] == "-0." || buffer[0] == "0.") {
+                                        buffer[0] += button.getText();
+                                        label.setText(buffer[0]);
+                                    }
+                                }
                             }
                             break;
                         default:
                             buffer[0] += button.getText();
                             label.setText(buffer[0]);
+                            break;
                     }
 //                    if (buffer[4] == "-" && buffer[0] == "") {
 //                        buffer[0] = buffer[4];
@@ -193,7 +202,7 @@ public class CalculatorWin extends JFrame {
 
                     label.setText(buffer[0]);
                 } else {
-                    if (buffer[0] != "-" && button.getText() != "=") {
+                    if (buffer[0] != "-" && button.getText() != "=" && buffer[0] != "") {
                         buffer[3] = button.getText();
                         label.setText(buffer[0] + buffer[3]);
                     }
