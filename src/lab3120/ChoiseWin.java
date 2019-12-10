@@ -15,7 +15,7 @@ public class ChoiseWin implements ActionListener {
         String command = ae.getActionCommand();
         switch (command) {
             case "Calculator":
-                Calculator cal = Calculator.getCalculator();
+                CalculatorWin cal = CalculatorWin.getCalculator();
                 break;
 
             case "Colorpicker":
