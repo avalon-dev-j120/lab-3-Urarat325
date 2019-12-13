@@ -120,6 +120,7 @@ public class Calculator implements ActionListener {
                     buffer[1] += command;
                     forLabel.setText(buffer[0] + buffer[3] + buffer[1]);
                 }
+                break;
         }
     }
 }
