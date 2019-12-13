@@ -2,13 +2,12 @@ package lab3120;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import static lab3120.CalculatorWin.*;
 
 public class Calculator implements ActionListener {
 
-    private static JLabel forLabel = CalculatorWin.getLabel();
+    private static final JLabel forLabel = CalculatorWin.getLabel();
 
     @Override
     public void actionPerformed(ActionEvent ae) {
@@ -23,81 +22,104 @@ public class Calculator implements ActionListener {
 
         String command = ae.getActionCommand();
 
-        if ("".equals(buffer[3]) && buffer[0].codePoints()
-                .filter(Character::isDigit).count() != 5) {  //Вывод первого числа
-
-            switch (command) {
-
-                case ".":
-                    if (buffer[0] != "") {
-                        buffer[0] += command;
-                        forLabel.setText(buffer[0]);
-                    }
-                    break;
-
-                case "0":
-                    if (buffer[0] != "0" && buffer[0] != "-0") {
-                        buffer[0] += command;
-                        forLabel.setText(buffer[0]);
-                    }
-                    break;
-                default:
+        switch (command) {
+            case ".":
+                if (buffer[0] != "") {
                     buffer[0] += command;
-                    forLabel.setText(buffer[0]+"dfgdf");
-                    break;
-            }
-        }
-        if (!"".equals(buffer[3]) && buffer[1].codePoints()
-                .filter(Character::isDigit).count() != 5) { //Вывод второго числа
+                    forLabel.setText(buffer[0]);
+                }
+                break;
+            case "0":
+                if (buffer[0] != "0" && buffer[0] != "-0") {
+                    buffer[0] += command;
+                    forLabel.setText(buffer[0]);
+                }
+                break;
 
-            buffer[1] += command;
-            forLabel.setText(buffer[0] + buffer[3] + buffer[1]);
-        }
-        if (command == "CE") {
-            forLabel.setText("");
-            buffer[0] = "";
-            buffer[1] = "";
-            buffer[2] = "";
-            buffer[3] = "";
-            buffer[4] = "";
-        }
+            case "CE":
+                forLabel.setText("");
+                buffer[0] = "";
+                buffer[1] = "";
+                buffer[2] = "";
+                buffer[3] = "";
+                buffer[4] = "";
+                break;
 
-        if (buffer[0] == "" && command == "-") {
-            buffer[0] = command;
+            case "-":
+                if (buffer[0] == "" && command == "-") {
+                    buffer[0] = command;
 
-            forLabel.setText(buffer[0]);
-        } else {
-            if (buffer[0] != "-" && command != "=" && buffer[0] != "") {
-                buffer[3] = command;
-                forLabel.setText(buffer[0] + buffer[3]);
-            }
-        }
+                    forLabel.setText(buffer[0]);
+                } else {
+                    if (buffer[0] != "-" && buffer[0] != "") {
+                        buffer[3] = command;
+                        forLabel.setText(buffer[0] + buffer[3]);
+                    }
+                }
+                break;
 
-        if (command == "=" && buffer[0] != "" && buffer[1] != "") {
+            case "=":
+                if (command == "=" && buffer[0] != "" && buffer[1] != "") {
 
-            double a = Double.parseDouble(buffer[0]);
-            double b = Double.parseDouble(buffer[1]);
+                    double a = Double.parseDouble(buffer[0]);
+                    double b = Double.parseDouble(buffer[1]);
 
-            switch (buffer[3]) {
-                case ("+"):
-                    buffer[2] = String.valueOf(a + b);
-                    break;
-                case ("-"):
-                    buffer[2] = String.valueOf(a - b);
-                    break;
-                case ("*"):
-                    buffer[2] = String.valueOf(a * b);
-                    break;
-                case ("/"):
-                    buffer[2] = String.valueOf(a / b);
-                    break;
-            }
-            forLabel.setText(buffer[2]); //Вывод ответа
-            buffer[0] = "";
-            buffer[1] = "";
-            buffer[2] = "";
-            buffer[3] = "";
-            buffer[4] = "";
+                    switch (buffer[3]) {
+                        case ("+"):
+                            buffer[2] = String.valueOf(a + b);
+                            break;
+                        case ("-"):
+                            buffer[2] = String.valueOf(a - b);
+                            break;
+                        case ("*"):
+                            buffer[2] = String.valueOf(a * b);
+                            break;
+                        case ("/"):
+                            buffer[2] = String.valueOf(a / b);
+                            break;
+                    }
+                    forLabel.setText(buffer[2]); //Вывод ответа
+                    buffer[0] = "";
+                    buffer[1] = "";
+                    buffer[2] = "";
+                    buffer[3] = "";
+                    buffer[4] = "";
+                }
+                break;
+
+            case "+":
+                if (buffer[0] != "") {
+                    buffer[3] = command;
+                    forLabel.setText(buffer[0] + buffer[3] + buffer[1]);
+                }
+                break;
+
+            case "*":
+                if (buffer[0] != "") {
+                    buffer[3] = command;
+                    forLabel.setText(buffer[0] + buffer[3] + buffer[1]);
+                }
+                break;
+            case "/":
+                if (buffer[0] != "") {
+                    buffer[3] = command;
+                    forLabel.setText(buffer[0] + buffer[3] + buffer[1]);
+                }
+                break;
+            default:
+                if ("".equals(buffer[3]) && buffer[0].codePoints()
+                        .filter(Character::isDigit).count() != 5) {  //Вывод первого числа
+
+                    buffer[0] += command;
+                    forLabel.setText(buffer[0]);
+                }
+
+                if (!"".equals(buffer[3]) && buffer[1].codePoints()
+                        .filter(Character::isDigit).count() != 5) { //Вывод второго числа
+
+                    buffer[1] += command;
+                    forLabel.setText(buffer[0] + buffer[3] + buffer[1]);
+                }
         }
     }
 }
