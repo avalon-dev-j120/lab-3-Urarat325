@@ -23,15 +23,32 @@ public class Calculator {
             public void mouseClicked(MouseEvent me) {
 
                 JButton button = (JButton) me.getComponent();
+
                 if ("".equals(buffer[3]) && buffer[0].codePoints()
                         .filter(Character::isDigit).count() != 5) {  //Вывод первого числа
 
-                    if (buffer[4] == "-" && buffer[0] == "") {
-                        buffer[0] = buffer[4];
+                    switch (button.getText()) {
+
+                        case ".":
+                            if (buffer[0] != "") {
+                                buffer[0] += button.getText();
+                                label.setText(buffer[0]);
+                            }
+                            break;
+
+                        case "0":
+                            if (buffer[0] != "0" && buffer[0] != "-0") {
+                                buffer[0] += button.getText();
+                                label.setText(buffer[0]);
+                            }
+                            break;
+                        default:
+                            buffer[0] += button.getText();
+                            label.setText(buffer[0]);
+                            break;
                     }
-                    buffer[0] = (buffer[0] + button.getText());
-                    label.setText(buffer[0]);
                 }
+
                 if (!"".equals(buffer[3]) && buffer[1].codePoints()
                         .filter(Character::isDigit).count() != 5) { //Вывод второго числа
 
@@ -59,16 +76,16 @@ public class Calculator {
                 JButton button = (JButton) me.getComponent();
 
                 if (buffer[0] == "" && button.getText() == "-") {
-                    buffer[4] = button.getText();
-                    label.setText(buffer[4]);
+                    buffer[0] = button.getText();
+
+                    label.setText(buffer[0]);
+                } else {
+                    if (buffer[0] != "-" && button.getText() != "=" && buffer[0] != "") {
+                        buffer[3] = button.getText();
+                        label.setText(buffer[0] + buffer[3]);
+                    }
                 }
 
-                if (button.getText() != "=" && buffer[0] != "") {
-
-                    buffer[3] = button.getText();
-                    label.setText(buffer[0] + buffer[3]);
-
-                }
                 if (button.getText() == "=" && buffer[0] != "" && buffer[1] != "") {
 
                     double a = Double.parseDouble(buffer[0]);

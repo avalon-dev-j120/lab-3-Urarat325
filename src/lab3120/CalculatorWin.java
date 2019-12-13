@@ -138,19 +138,9 @@ public class CalculatorWin extends JFrame {
                             break;
 
                         case "0":
-                            if (buffer[0] == "" || buffer[0] == "-") {
+                            if (buffer[0] != "0" && buffer[0] != "-0") {
                                 buffer[0] += button.getText();
                                 label.setText(buffer[0]);
-                            } else {
-                                if (buffer[0] == "0" || buffer[0] == "-0") {
-                                    buffer[0] += ".";
-                                    label.setText(buffer[0]);
-                                } else {
-                                    if (buffer[0] == "-0." || buffer[0] == "0.") {
-                                        buffer[0] += button.getText();
-                                        label.setText(buffer[0]);
-                                    }
-                                }
                             }
                             break;
                         default:
@@ -237,29 +227,27 @@ public class CalculatorWin extends JFrame {
             }
         };
         setVisible(true);
-//        Calculator butMouseListener = new Calculator();
-//        Calculator butCEMouseListener = new Calculator();
-//        Calculator butSingsMouseListener = new Calculator();
 
-        but1.addMouseListener((MouseListener) butMouseListener);
-        but2.addMouseListener((MouseListener) butMouseListener);
-        but3.addMouseListener((MouseListener) butMouseListener);
-        but4.addMouseListener((MouseListener) butMouseListener);
-        but5.addMouseListener((MouseListener) butMouseListener);
-        but6.addMouseListener((MouseListener) butMouseListener);
-        but7.addMouseListener((MouseListener) butMouseListener);
-        but8.addMouseListener((MouseListener) butMouseListener);
-        but9.addMouseListener((MouseListener) butMouseListener);
-        but0.addMouseListener((MouseListener) butMouseListener);
-        butPoint.addMouseListener((MouseListener) butMouseListener);
 
-        butCE.addMouseListener((MouseListener) butCEMouseListener);
+        but1.addMouseListener(butMouseListener);
+        but2.addMouseListener(butMouseListener);
+        but3.addMouseListener(butMouseListener);
+        but4.addMouseListener(butMouseListener);
+        but5.addMouseListener(butMouseListener);
+        but6.addMouseListener(butMouseListener);
+        but7.addMouseListener(butMouseListener);
+        but8.addMouseListener(butMouseListener);
+        but9.addMouseListener(butMouseListener);
+        but0.addMouseListener(butMouseListener);
+        butPoint.addMouseListener(butMouseListener);
 
-        butPlus.addMouseListener((MouseListener) butSingsMouseListener);
-        butMinus.addMouseListener((MouseListener) butSingsMouseListener);
-        butDev.addMouseListener((MouseListener) butSingsMouseListener);
-        butMult.addMouseListener((MouseListener) butSingsMouseListener);
-        butEquils.addMouseListener((MouseListener) butSingsMouseListener);
+        butCE.addMouseListener(butCEMouseListener);
+
+        butPlus.addMouseListener(butSingsMouseListener);
+        butMinus.addMouseListener(butSingsMouseListener);
+        butDev.addMouseListener(butSingsMouseListener);
+        butMult.addMouseListener(butSingsMouseListener);
+        butEquils.addMouseListener(butSingsMouseListener);
     }
 
     public static CalculatorWin getCalculator() {
