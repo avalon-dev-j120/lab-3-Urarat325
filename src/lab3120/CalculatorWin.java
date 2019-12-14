@@ -131,7 +131,7 @@ public class CalculatorWin extends JFrame {
                     switch (button.getText()) {
 
                         case ".":
-                            if (buffer[0] != "") {
+                            if (!"".equals(buffer[0])) {
                                 buffer[0] += button.getText();
                                 label.setText(buffer[0]);
                             }
@@ -176,18 +176,18 @@ public class CalculatorWin extends JFrame {
             public void mouseClicked(MouseEvent me) {
                 JButton button = (JButton) me.getComponent();
 
-                if (buffer[0] == "" && button.getText() == "-") {
+                if ("".equals(buffer[0]) && "-".equals(button.getText())) {
                     buffer[0] = button.getText();
 
                     label.setText(buffer[0]);
                 } else {
-                    if (buffer[0] != "-" && button.getText() != "=" && buffer[0] != "") {
+                    if (!"-".equals(buffer[0]) && !"=".equals(button.getText()) && !"".equals(buffer[0])) {
                         buffer[3] = button.getText();
                         label.setText(buffer[0] + buffer[3]);
                     }
                 }
 
-                if (button.getText() == "=" && buffer[0] != "" && buffer[1] != "") {
+                if ("=".equals(button.getText()) && !"".equals(buffer[0]) && !"".equals(buffer[1])) {
 
                     double a = Double.parseDouble(buffer[0]);
                     double b = Double.parseDouble(buffer[1]);
