@@ -37,7 +37,7 @@ public class Calculator {
                             break;
 
                         case "0":
-                            if (buffer[0] != "0" && buffer[0] != "-0") {
+                            if (!"0".equals(buffer[0]) && !"-0".equals(buffer[0])) {
                                 buffer[0] += button.getText();
                                 label.setText(buffer[0]);
                             }

@@ -138,7 +138,7 @@ public class CalculatorWin extends JFrame {
                             break;
 
                         case "0":
-                            if (buffer[0] != "0" && buffer[0] != "-0") {
+                            if (!"0".equals(buffer[0]) && !"-0".equals(buffer[0])) {
                                 buffer[0] += button.getText();
                                 label.setText(buffer[0]);
                             }
@@ -148,17 +148,6 @@ public class CalculatorWin extends JFrame {
                             label.setText(buffer[0]);
                             break;
                     }
-//                    if (buffer[4] == "-" && buffer[0] == "") {
-//                        buffer[0] = buffer[4];
-//                    }
-//                    if (button.getText() == "." && buffer[0] == "") {
-//                        
-//                    }
-//                    if (button.getText() == "0" && buffer[0] == "0"){
-//                        
-//                    }
-//                    buffer[0] = (buffer[0] + button.getText());
-//                    label.setText(buffer[0]);
                 }
 
                 if (!"".equals(buffer[3]) && buffer[1].codePoints()
@@ -227,7 +216,6 @@ public class CalculatorWin extends JFrame {
             }
         };
         setVisible(true);
-
 
         but1.addMouseListener(butMouseListener);
         but2.addMouseListener(butMouseListener);
